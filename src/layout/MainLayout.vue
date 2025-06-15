@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {computed} from 'vue';
 import {useRoute, useRouter} from 'vue-router';
-import {useDefaultDataStore} from "../store/defaultData.ts";
 
-const defaultDataStore = useDefaultDataStore();
+
+
 const router = useRouter();
 const route = useRoute();
 const activeKey = computed(() => route.path);

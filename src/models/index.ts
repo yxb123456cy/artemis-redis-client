@@ -10,3 +10,11 @@ export interface RedisConnection {
     createdAt: Date;
     updatedAt: Date;
 }
+
+
+export interface redisKey {
+    key: string,
+    type: string,
+    size: string,
+    ttl: number
+}

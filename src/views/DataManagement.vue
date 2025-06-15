@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 import {Message} from '@arco-design/web-vue';
+import type {redisKey} from "../models";
+
 
 // 模拟的Redis连接
 const connections = ref([
@@ -13,7 +15,7 @@ const currentConnection = ref(connections.value[0]);
 const searchPattern = ref('');
 const selectedDb = ref(0);
 const dataType = ref('string');
-const keyList = ref([]);
+const keyList = ref<Array<redisKey>>([]);
 const selectedKey = ref('');
 const keyValue = ref('');
 const keyTTL = ref(0);
@@ -65,7 +67,7 @@ const handleSearch = () => {
 };
 
 // 选择键
-const handleSelectKey = (key) => {
+const handleSelectKey = (key: redisKey) => {
   selectedKey.value = key.key;
   // 模拟加载键值
   loading.value = true;
@@ -222,6 +224,7 @@ const handleConnectionChange = () => {
 
           <a-spin :loading="loading" class="key-list-spinner">
             <a-list :bordered="false" class="key-list">
+
               <a-list-item
                   v-for="item in keyList"
                   :key="item.key"
@@ -231,14 +234,8 @@ const handleConnectionChange = () => {
               >
                 <div class="key-item-content">
                   <div class="key-name">
+                    <!--                   todo  后续根据键类型来设置颜色-->
                     <a-tag
-                        :color="{
-                        'string': 'blue',
-                        'hash': 'green',
-                        'list': 'orange',
-                        'set': 'purple',
-                        'zset': 'red'
-                      }[item.type]"
                         size="small"
                     >
                       {{ item.type }}
@@ -253,6 +250,7 @@ const handleConnectionChange = () => {
                   </div>
                 </div>
               </a-list-item>
+
             </a-list>
           </a-spin>
         </div>

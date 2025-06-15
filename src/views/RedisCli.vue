@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue';
+import { ref,  onMounted } from 'vue';
 import { Message } from '@arco-design/web-vue';
 
 // 模拟的Redis连接
@@ -11,8 +11,8 @@ const connections = ref([
 
 const currentConnection = ref(connections.value[0]);
 const commandInput = ref('');
-const commandHistory = ref([]);
-const commandResults = ref([]);
+const commandHistory = ref<Array<string>>([]);
+const commandResults = ref<any>([]);
 const loading = ref(false);
 const historyIndex = ref(-1);
 
@@ -129,7 +129,7 @@ const executeCommand = () => {
 };
 
 // 处理键盘事件，支持上下键浏览历史命令
-const handleKeyDown = (e) => {
+const handleKeyDown = (e: any) => {
   if (e.key === 'ArrowUp') {
     e.preventDefault();
     if (historyIndex.value < commandHistory.value.length - 1) {
@@ -192,7 +192,7 @@ onMounted(() => {
           </a-select>
           
           <a-button type="primary" status="danger" @click="clearResults">
-            <template #icon><a-icon-delete /></template>
+            <template #icon><icon-delete /></template>
             清空结果
           </a-button>
         </a-space>
@@ -263,7 +263,7 @@ onMounted(() => {
           >
             <template #suffix>
               <a-button type="text" @click="executeCommand" :disabled="loading">
-                <template #icon><a-icon-send /></template>
+                <template #icon><icon-send /></template>
               </a-button>
             </template>
           </a-input>
@@ -290,7 +290,7 @@ onMounted(() => {
   font-weight: 700;
   margin: 0;
   background: linear-gradient(90deg, #ff4d4f 0%, #ff7875 100%);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

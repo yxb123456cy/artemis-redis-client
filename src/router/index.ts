@@ -43,5 +43,10 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 });
+// 或
+router.afterEach((to, from, next) => {
+    console.log(to, from, next);
+    window.scrollTo(0, 0);
+});
 
 export default router;

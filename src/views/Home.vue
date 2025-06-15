@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 const features = [
   {
     title: 'Redis连接管理',
@@ -37,10 +40,10 @@ const features = [
   <div class="home-container">
     <section class="hero">
       <div class="hero-content">
-        <h1 class="hero-title" >Artemis Redis Client</h1>
+        <h1 class="hero-title">Artemis Redis Client</h1>
         <p class="hero-subtitle">强大、美观的Redis可视化管理工具</p>
         <div class="hero-actions">
-          <a-button type="primary" size="large" shape="round" @click="$router.push('/connections')" status="danger">
+          <a-button type="primary" size="large" shape="round" @click="router.push('/connections')" status="danger">
             开始使用
             <template #icon>
               <icon-right/>
@@ -63,7 +66,7 @@ const features = [
       <h2 class="section-title">主要功能</h2>
       <div class="feature-grid">
         <a-card v-for="(feature, index) in features" :key="index" class="feature-card"
-                :style="{ animationDelay: `${index * 0.1}s` }" hoverable @click="$router.push(feature.route)">
+                :style="{ animationDelay: `${index * 0.1}s` }" hoverable @click="router.push(feature.route)">
           <template #cover>
             <div class="feature-icon">
               <icon-link v-if="feature.icon === 'link'"/>
@@ -85,7 +88,7 @@ const features = [
       <div class="cta-content">
         <h2 class="cta-title">准备好开始使用了吗？</h2>
         <p class="cta-description">立即创建您的第一个Redis连接，体验Artemis Redis Client的强大功能</p>
-        <a-button type="primary" status="danger" size="large" shape="round" @click="$router.push('/connections')">
+        <a-button type="primary" status="danger" size="large" shape="round" @click="router.push('/connections')">
           创建连接
           <template #icon>
             <icon-plus/>

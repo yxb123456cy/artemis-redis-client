@@ -119,12 +119,12 @@ const exportSettings = () => {
 };
 
 // 导入设置
-const importSettings = (e) => {
+const importSettings = (e: any) => {
   const file = e.target.files[0];
   if (!file) return;
 
   const reader = new FileReader();
-  reader.onload = (event) => {
+  reader.onload = (event: any) => {
     try {
       const importedSettings = JSON.parse(event.target.result);
 
