@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import {computed} from 'vue';
 import {useRoute, useRouter} from 'vue-router';
+import {useDefaultDataStore} from "../store/defaultData.ts";
 
+const defaultDataStore = useDefaultDataStore();
 const router = useRouter();
 const route = useRoute();
 const activeKey = computed(() => route.path);
@@ -33,9 +35,8 @@ const handleMenuClick = (key: string) => {
         <a-menu-item key="/user-center">个人中心</a-menu-item>
         <a-menu-item key="/settings">系统设置</a-menu-item>
       </a-menu>
-      <div class="user-actions">
-        <a-avatar>
-          <icon-user/>
+      <div>
+        <a-avatar image-url="https://yzujcnshvfnzphdlkecu.supabase.co/storage/v1/object/public/password-qy/public/avatar/1749973056867_28.jpg">
         </a-avatar>
       </div>
     </header>
@@ -101,10 +102,7 @@ const handleMenuClick = (key: string) => {
   background-color: transparent;
 }
 
-.user-actions {
-  display: flex;
-  align-items: center;
-}
+
 
 .main-content {
   flex: 1;

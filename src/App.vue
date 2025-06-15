@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import MainLayout from './layout/MainLayout.vue';
+import {onMounted} from "vue";
+import {useDefaultDataStore} from "./store/defaultData.ts";
+
+const defaultDataStore = useDefaultDataStore();
+onMounted(() => {
+  defaultDataStore.setDefaultAvatarURL(import.meta.env.VITE_DEFAULT_AVATER_URL as string);
+})
 </script>
 
 <template>
-  <MainLayout />
+  <MainLayout/>
 </template>
 
 <style>

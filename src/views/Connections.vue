@@ -19,8 +19,8 @@ const connections = ref<RedisConnection[]>([
     port: 6379,
     db: 0,
     description: '本地开发环境Redis服务器',
-    createdAt: new Date('2023-01-01'),
-    updatedAt: new Date('2023-01-01')
+    createdAt: new Date('2025-01-01'),
+    updatedAt: new Date('2025-01-01')
   },
   {
     id: '2',
@@ -30,8 +30,8 @@ const connections = ref<RedisConnection[]>([
     password: '********',
     db: 1,
     description: '测试环境Redis服务器',
-    createdAt: new Date('2023-01-02'),
-    updatedAt: new Date('2023-01-02')
+    createdAt: new Date('2025-01-02'),
+    updatedAt: new Date('2025-01-02')
   },
   {
     id: '3',
@@ -42,8 +42,8 @@ const connections = ref<RedisConnection[]>([
     password: '********',
     db: 0,
     description: '生产环境Redis服务器',
-    createdAt: new Date('2023-01-03'),
-    updatedAt: new Date('2023-01-03')
+    createdAt: new Date('2025-01-03'),
+    updatedAt: new Date('2025-01-03')
   }
 ]);
 
