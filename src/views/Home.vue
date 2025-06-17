@@ -58,7 +58,7 @@ const features = [
         </div>
       </div>
       <div class="hero-image">
-        <img src="/vite.svg" alt="Hero Image"/>
+        <img src="/DeviconPlainRedis.svg" alt="Hero Image"/>
       </div>
     </section>
 

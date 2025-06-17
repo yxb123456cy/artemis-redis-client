@@ -19,7 +19,7 @@ const handleMenuClick = (key: string) => {
   <div class="layout">
     <header class="header">
       <div class="logo-container">
-        <img src="/vite.svg" alt="Logo" class="logo"/>
+        <img src="/DeviconPlainRedis.svg" alt="Logo" class="logo"/>
         <h1 class="app-title" @click="goHome">Artemis Redis Client</h1>
       </div>
       <a-menu
